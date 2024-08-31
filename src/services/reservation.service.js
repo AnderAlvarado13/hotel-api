@@ -1,17 +1,24 @@
-const { Reservation, Guest, Room } = require('../models');
+const Guest = require('../models/guest.model');
+const Room = require('../models/room.model');
+const Reservation = require('../models/reservation.model');
 
 const createReservation = async (data) => {
     const { guest_id, room_id, check_in_date, check_out_date, total_price, status } = data;
 
+    // Verificamos que el huespede se encuentre
+    const guest = await Guest.findByPk(guest_id);
+    if(!guest){
+        throw new Error('El Huespede no fue encontrado!');
+    }
     // Verificamos que la habitación esté disponible
     const room = await Room.findByPk(room_id);
     if (!room || !room.is_available) {
-        throw new Error('Habitación no disponible');
+        throw new Error('La Habitación no se encuentra disponible!');
     }
 
     // Creamos la reservación
+    console.log(Reservation);
     const reservation = await Reservation.create({
-
         guest_id,
         room_id,
         check_in_date,
