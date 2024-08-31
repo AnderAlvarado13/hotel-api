@@ -3,8 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const authRoutes = require('./routes/auth.routes');
-const adminRoutes = require('./routes/admin.routes');
-const clientRoutes = require('./routes/client.routes');
+const reservationRoutes = require('./routes/reservation.routes');
 const { errorHandler } = require('./middleware/error.middleware');
 
 // Configuración de bodyParser para parsear solicitudes JSON
@@ -14,7 +13,8 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // Rutas
-app.use('/api/auth', authRoutes);
+app.use('/api', authRoutes);
+app.use('/api', reservationRoutes);
 
 
 // Middleware para manejar errores
