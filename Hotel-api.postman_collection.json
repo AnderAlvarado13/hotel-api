@@ -1,0 +1,688 @@
+{
+	"info": {
+		"_postman_id": "789aa51f-5795-4eb7-8a88-d8ce8514235b",
+		"name": "Hotel-api",
+		"description": "Prueba tecnica de reservas de habitacion de los hoteles en donde podras encontrar un CRUD completo de Hoteles, Habitacioens, Huespedes y unos requerimientos especificos para las resevaciones de esta Habitaciones.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31586031"
+	},
+	"item": [
+		{
+			"name": "auth-register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Prueba1\",\r\n  \"email\":\"prueba1@gmail.com\",\r\n  \"password\": \"prueba1\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				},
+				"description": "Registra los usuarios lo cuales van a ingregar a la gestion."
+			},
+			"response": []
+		},
+		{
+			"name": "auth-login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Prueba1\",\r\n  \"password\": \"prueba1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": "De acuerdo a tu usuario y contraseña este generará un token el cual se necesaritara para las gestion de la resevas de los hoteles."
+			},
+			"response": []
+		},
+		{
+			"name": "guests-create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzE3NTEsImV4cCI6MTcyNTEzNTM1MX0.HfcsXyMrtz4mQfoDibQbR0NgEbfHOfgLE-BZVUtG_bs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"Anderson\",\r\n  \"last_name\": \"Alvarado\",\r\n  \"email\": \"ander@gmail.com\",\r\n  \"phone_number\": \"318000000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/guests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"guests"
+					]
+				},
+				"description": "Realiza la creacion de los Huespedes de acuerdo a los datos solicitados."
+			},
+			"response": []
+		},
+		{
+			"name": "guests-list-id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzE3NTEsImV4cCI6MTcyNTEzNTM1MX0.HfcsXyMrtz4mQfoDibQbR0NgEbfHOfgLE-BZVUtG_bs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/guests/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"guests",
+						"1"
+					]
+				},
+				"description": "Genera los datos del huesped de acuerdo al id."
+			},
+			"response": []
+		},
+		{
+			"name": "guests-list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzE3NTEsImV4cCI6MTcyNTEzNTM1MX0.HfcsXyMrtz4mQfoDibQbR0NgEbfHOfgLE-BZVUtG_bs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/guests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"guests"
+					]
+				},
+				"description": "Genera listado de los huespedes con sus datos."
+			},
+			"response": []
+		},
+		{
+			"name": "guests-update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzE3NTEsImV4cCI6MTcyNTEzNTM1MX0.HfcsXyMrtz4mQfoDibQbR0NgEbfHOfgLE-BZVUtG_bs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"ander@gmail.com\",\r\n  \"phone_number\": \"318000000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/guests/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"guests",
+						"1"
+					]
+				},
+				"description": "Realiza la modificacion de el huesped de acuerdo a el id."
+			},
+			"response": []
+		},
+		{
+			"name": "guests-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzE3NTEsImV4cCI6MTcyNTEzNTM1MX0.HfcsXyMrtz4mQfoDibQbR0NgEbfHOfgLE-BZVUtG_bs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/guests/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"guests",
+						"1"
+					]
+				},
+				"description": "Elimina al huesped de acuerdo al id."
+			},
+			"response": []
+		},
+		{
+			"name": "hotel-create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"AnderALS\",\r\n  \"address\": \"Carrera 21 a # 11-11\",\r\n  \"city\": \"Mosquera\",\r\n  \"country\": \"Colombia\",\r\n  \"phone_number\": \"3188361500\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hotels"
+					]
+				},
+				"description": "Realiza la creacion de los hoteles."
+			},
+			"response": []
+		},
+		{
+			"name": "hotel-list-id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/hotels/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hotels",
+						"1"
+					]
+				},
+				"description": "Consulta los datos del hotel de acuerdo al id"
+			},
+			"response": []
+		},
+		{
+			"name": "hotel-list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hotels"
+					]
+				},
+				"description": "Consuta el listado de horteles."
+			},
+			"response": []
+		},
+		{
+			"name": "hotel-update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"AnderALS\",\r\n  \"address\": \"Carrera 21 # 11-11\",\r\n  \"city\": \"Mosquera\",\r\n  \"country\": \"Colombia\",\r\n  \"phone_number\": \"3188361500\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/hotels/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hotels",
+						"1"
+					]
+				},
+				"description": "Realiza la modificacion de cualquier parametro de acuerdo al id."
+			},
+			"response": []
+		},
+		{
+			"name": "hotel-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/hotels/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"hotels",
+						"1"
+					]
+				},
+				"description": "Realiza la eliminacion de los hoteles"
+			},
+			"response": []
+		},
+		{
+			"name": "room-create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"hotel_id\": 1,\r\n  \"room_number\": \"1001\",\r\n  \"type\": \"Habitación individual\",\r\n  \"price_per_night\": \"400.00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rooms"
+					]
+				},
+				"description": "Realiza la creacion de las habitaciones."
+			},
+			"response": []
+		},
+		{
+			"name": "room-list-id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/rooms/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rooms",
+						"1"
+					]
+				},
+				"description": "Consulta la hibitacion de acuerdo al id."
+			},
+			"response": []
+		},
+		{
+			"name": "room-list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rooms"
+					]
+				},
+				"description": "Consulta el listado de habitaciones."
+			},
+			"response": []
+		},
+		{
+			"name": "room-update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxNDM0ODMsImV4cCI6MTcyNTE0NzA4M30.HpTpcrDU8YyU7HXj1aSKAJm3KuG7DLEhNqRYlr6q9YY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"is_available\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rooms/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rooms",
+						"1"
+					]
+				},
+				"description": "Puede modifcar cualquier parametro de las habitaciones de acuerdo al id."
+			},
+			"response": []
+		},
+		{
+			"name": "room-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxMzk3NTAsImV4cCI6MTcyNTE0MzM1MH0.D04fFakCE89Fyb8t4U9tBbBQR7hOGt13udPVTUt5DUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/rooms/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rooms",
+						"1"
+					]
+				},
+				"description": "Realiza la eliminacion de las habitaciones"
+			},
+			"response": []
+		},
+		{
+			"name": "reservations-create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxNDM0ODMsImV4cCI6MTcyNTE0NzA4M30.HpTpcrDU8YyU7HXj1aSKAJm3KuG7DLEhNqRYlr6q9YY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"guest_id\": 2,\r\n  \"room_id\": 1,\r\n  \"check_in_date\": \"2024-09-01\",\r\n  \"check_out_date\": \"2024-09-05\",\r\n  \"total_price\": 500.00,\r\n  \"status\": \"confirmed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reservations"
+					]
+				},
+				"description": "Crea la reservacion validado si el huesped exite y si la habitacion se encuentra disponible."
+			},
+			"response": []
+		},
+		{
+			"name": "reservations-update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxNDM0ODMsImV4cCI6MTcyNTE0NzA4M30.HpTpcrDU8YyU7HXj1aSKAJm3KuG7DLEhNqRYlr6q9YY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"check_out_date\": \"2024-09-06\",\r\n  \"total_price\": 600.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/reservations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reservations",
+						"1"
+					]
+				},
+				"description": "Realiza la modificacion cualquier campo de acuerdo al id."
+			},
+			"response": []
+		},
+		{
+			"name": "reservations-delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxNDM0ODMsImV4cCI6MTcyNTE0NzA4M30.HpTpcrDU8YyU7HXj1aSKAJm3KuG7DLEhNqRYlr6q9YY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/reservations/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reservations",
+						"1"
+					]
+				},
+				"description": "Realiza la eliminacion de la reservacion y realizar la modificacion para que la hibitacion que fue reservada este disponible."
+			},
+			"response": []
+		},
+		{
+			"name": "reservations-listfilter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiUHJ1ZWJhMSIsImVtYWlsIjoicHJ1ZWJhMUBnbWFpbC5jb20iLCJpYXQiOjE3MjUxNDM0ODMsImV4cCI6MTcyNTE0NzA4M30.HpTpcrDU8YyU7HXj1aSKAJm3KuG7DLEhNqRYlr6q9YY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/reservations?service=1&customer=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reservations"
+					],
+					"query": [
+						{
+							"key": "service",
+							"value": "1"
+						},
+						{
+							"key": "customer",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Se podra consultar las reservaciones que ahí al igual que puedes agregar los parametros de fecha, servicio y cliente."
+			},
+			"response": []
+		}
+	]
+}
