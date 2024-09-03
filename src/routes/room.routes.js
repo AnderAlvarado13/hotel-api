@@ -17,4 +17,7 @@ router.put('/rooms/:id', roomController.updateRoom);
 // Eliminar una habitación por ID
 router.delete('/rooms/:id', roomController.deleteRoom);
 
+// Obtener todas las habitaciones por ID hotel
+router.get('/rooms/hotel/:hotel_id', roomController.getRoomsByHotel);
+
 module.exports = router;

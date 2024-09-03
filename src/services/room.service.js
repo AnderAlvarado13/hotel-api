@@ -36,10 +36,23 @@ const deleteRoom = async (id) => {
     return room;
 };
 
+const getRoomsByHotel = async (hotelId) => {
+    try {
+      const rooms = await Room.findAll({ where: { hotel_id: hotelId } });
+      if (rooms.length === 0) {
+        throw new Error('No se encontraron habitaciones para este hotel');
+      }
+      return rooms;
+    } catch (error) {
+      throw new Error('Error al obtener las habitaciones del hotel: ' + error.message);
+    }
+};
+
 module.exports = {
     createRoom,
     getRoom,
     getAllRooms,
     updateRoom,
     deleteRoom,
+    getRoomsByHotel,
 };

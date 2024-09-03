@@ -45,10 +45,20 @@ const deleteRoom = async (req, res) => {
     }
 };
 
+const getRoomsByHotel = async (req, res) => {
+    try {
+      const rooms = await roomService.getRoomsByHotel(req.params.hotel_id);
+      res.status(200).json(rooms);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+
 module.exports = {
     createRoom,
     getRoom,
     getAllRooms,
     updateRoom,
     deleteRoom,
+    getRoomsByHotel
 };
