@@ -48,6 +48,18 @@ const getRoomsByHotel = async (hotelId) => {
     }
 };
 
+const getRoomsAvailable = async () => {
+    try {
+      const rooms = await Room.findAll({ where: { is_available: true } });
+      if (rooms.length === 0) {
+        throw new Error('No se encontraron habitaciones disponibles o no disponibles');
+      }
+      return rooms;
+    } catch (error) {
+      throw new Error('Error al obtener las habitaciones disponibles o no disponibles: ' + error.message);
+    }
+};
+
 module.exports = {
     createRoom,
     getRoom,
@@ -55,4 +67,5 @@ module.exports = {
     updateRoom,
     deleteRoom,
     getRoomsByHotel,
+    getRoomsAvailable
 };

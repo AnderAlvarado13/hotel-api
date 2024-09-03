@@ -60,5 +60,5 @@ module.exports = {
     getAllRooms,
     updateRoom,
     deleteRoom,
-    getRoomsByHotel
+    getRoomsByHotel,
 };
