@@ -8,7 +8,7 @@
 
 ***Requisitos***
 
-- Node version "v20.16.0no"
+- Node version "v20.16.0"
 - npm version "8.19.2"
 - MySQL
 > [!NOTE]
